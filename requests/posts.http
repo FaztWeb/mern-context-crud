@@ -1,0 +1,28 @@
+@api = http://localhost:4000/api/posts
+
+### get all posts
+GET {{api}}
+
+### create post
+POST {{api}}
+Content-Type: application/json
+
+{
+  "title": "my first post",
+  "description": "this is my first post",
+  "image": "some image.url"
+}
+
+### get a single post
+GET {{api}}/623a9e2e90e70485df76d487
+
+### update a single post
+PUT {{api}}/623a9e2e90e70485df76d487
+Content-Type: application/json
+
+{
+"description": "some new image"
+}
+
+### delete a single post
+DELETE {{api}}/623a9e2e90e70485df76d487
