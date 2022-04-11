@@ -20,7 +20,10 @@ export function PostForm() {
     (async () => {
       if (params.id) {
         const post = await getPost(params.id);
-        setPost(post);
+        setPost({
+          title: post.title,
+          description: post.description,
+        });
       }
     })();
   }, [params.id, getPost]);
@@ -48,7 +51,7 @@ export function PostForm() {
             } else {
               await createPost(values);
             }
-            // actions.resetForm();
+            actions.resetForm();
             actions.setSubmitting(false);
             navigate("/");
           }}

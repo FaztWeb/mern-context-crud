@@ -20,5 +20,13 @@ export const createPostRequest = async (post) => {
 };
 
 export const updatePostRequest = async (id, newPostFields) => {
-  return axios.put("/api/posts/" + id, newPostFields);
+  const form = new FormData();
+  for (let key in newPostFields) {
+    form.append(key, newPostFields[key]);
+  }
+  return axios.put("/api/posts/" + id, form, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };
